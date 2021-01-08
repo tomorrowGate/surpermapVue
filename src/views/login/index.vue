@@ -11,10 +11,8 @@
       <div class="desc">6. {{ $t("common.desc.f") }}</div>
       <div class="desc">
         8. 源码：
-        <a href="https://github.com/zuihou" target="_blank"
-        >github</a>、
-        <a href="https://gitee.com/zuihou111" target="_blank"
-        >gitee</a>
+        <a href="https://github.com/zuihou" target="_blank">github</a>、
+        <a href="https://gitee.com/zuihou111" target="_blank">gitee</a>
       </div>
     </div>
     <el-form
@@ -27,7 +25,7 @@
     >
       <div class="title-container">
         <h3 class="title">{{ $t("login.title") }}</h3>
-        <lang-select class="set-language"/>
+        <lang-select class="set-language" />
       </div>
       <span v-if="login.type === 'up'">
         <el-form-item prop="tenant" v-show="isMultiTenant">
@@ -92,8 +90,7 @@
           @click.native.prevent="handleLogin"
           style="width:100%;margin-bottom:14px;"
           type="primary"
-        >{{ $t("login.logIn") }}</el-button
-        >
+        >{{ $t("login.logIn") }}</el-button>
       </span>
       <span v-if="login.type === 'social'">
         {{ $t("login.chooseToSignIn") }}
@@ -141,8 +138,7 @@
               @click.native.prevent="bindLogin"
               style="width:100%;margin-bottom:14px;"
               type="primary"
-            >{{ $t("common.bindLogin") }}</el-button
-            >
+            >{{ $t("common.bindLogin") }}</el-button>
           </el-tab-pane>
           <el-tab-pane :label="$t('common.signLogin')" name="signLogin">
             <el-form-item prop="signAccount">
@@ -173,8 +169,7 @@
               @click.native.prevent="signLogin"
               style="width:100%;margin-bottom:14px;"
               type="primary"
-            >{{ $t("common.signLogin") }}</el-button
-            >
+            >{{ $t("common.signLogin") }}</el-button>
           </el-tab-pane>
         </el-tabs>
       </span>
@@ -186,13 +181,11 @@
           <el-dropdown-item
             :disabled="login.type === 'up'"
             @click.native="login.type = 'up'"
-          >{{ $t("login.type.up") }}
-          </el-dropdown-item>
+          >{{ $t("login.type.up") }}</el-dropdown-item>
           <el-dropdown-item
             :disabled="login.type === 'social'"
             @click.native="login.type = 'social'"
-          >{{ $t("login.type.social") }}
-          </el-dropdown-item>
+          >{{ $t("login.type.social") }}</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </el-form>
@@ -207,14 +200,14 @@
 <script>
 import LangSelect from "@/components/LangSelect";
 import db from "@/utils/localstorage";
-import {randomNum} from "@/utils";
-import {socialLoginUrl} from "@/settings";
+import { randomNum } from "@/utils";
+import { socialLoginUrl } from "@/settings";
 import loginApi from "@/api/Login.js";
-import {Base64} from "js-base64";
+import { Base64 } from "js-base64";
 
 export default {
   name: "Login",
-  components: {LangSelect},
+  components: { LangSelect },
   data() {
     return {
       //是否启用多租户
@@ -225,12 +218,12 @@ export default {
         type: "up"
       },
       logo: [
-        {img: "gitee.png", name: "gitee", radius: true},
-        {img: "github.png", name: "github", radius: true},
-        {img: "tencent_cloud.png", name: "tencent_cloud", radius: true},
-        {img: "qq.png", name: "qq", radius: false},
-        {img: "dingtalk.png", name: "dingtalk", radius: true},
-        {img: "microsoft.png", name: "microsoft", radius: false}
+        { img: "gitee.png", name: "gitee", radius: true },
+        { img: "github.png", name: "github", radius: true },
+        { img: "tencent_cloud.png", name: "tencent_cloud", radius: true },
+        { img: "qq.png", name: "qq", radius: false },
+        { img: "dingtalk.png", name: "dingtalk", radius: true },
+        { img: "microsoft.png", name: "microsoft", radius: false }
       ],
       loginForm: {
         account: "lamp",
@@ -322,8 +315,7 @@ export default {
       }
     };
   },
-  created() {
-  },
+  created() {},
   mounted() {
     db.clear();
     this.getCodeImage();
@@ -395,10 +387,10 @@ export default {
         that
           .$confirm(
             that.$t("common.current") +
-            authUser.source +
-            that.$t("common.socialAccount") +
-            authUser.nickname +
-            that.$t("common.socialTips"),
+              authUser.source +
+              that.$t("common.socialAccount") +
+              authUser.nickname +
+              that.$t("common.socialTips"),
             that.$t("common.tips"),
             {
               confirmButtonText: that.$t("common.signLogin"),
@@ -493,6 +485,9 @@ export default {
       }
     },
     handleLogin() {
+       console.log(5566)
+       this.mockLoginSuccess()
+       return
       this.loginForm.tenant = `${Base64.encode(this.loginForm.tenantView)}`;
       this.$refs.loginForm.validate(valid => {
         if (valid) {
@@ -507,7 +502,10 @@ export default {
       const that = this;
       this.$store.commit("account/setTenant", this.loginForm.tenant);
       loginApi
-        .login(this.loginForm, {tenant: this.loginForm.tenant, "X-isTenant": false})
+        .login(this.loginForm, {
+          tenant: this.loginForm.tenant,
+          "X-isTenant": false
+        })
         .then(response => {
           const res = response.data;
           if (res.isSuccess) {
@@ -553,10 +551,8 @@ export default {
         if (res.isSuccess) {
           const authorityResource = res.data;
           const permissionsList = authorityResource.resourceList || [];
-
           this.$store.commit("account/setPermissions", permissionsList);
           this.$store.commit("account/setAuthorityResource", authorityResource);
-
           this.loginSuccess();
         } else {
           this.getCodeImage();
@@ -572,6 +568,12 @@ export default {
     },
     loginSuccessCallback(user) {
       console.log(user);
+    },
+    mockLoginSuccess(){
+       console.log(5566)
+        db.save('USER',{"id":"2","account":"lamp","name":"超级管理员","avatar":"","workDescribe":"不想上班!"})
+        db.save('TOKEN',"eyJ0eXAiOiJKc29uV2ViVG9rZW4iLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoi6LaF57qn566h55CG5ZGYIiwidG9rZW5fdHlwZSI6InRva2VuIiwidXNlcmlkIjoiMiIsImFjY291bnQiOiJsYW1wIiwiaWF0IjoxNjEwMDcyNTE4LCJuYmYiOjE2MTAwNzI1MTgsImV4cCI6MTYxMDEwMTMxOH0.HMuTjx-lWlvU6THe4-uZZwdMaGiQbus1GeNuUE1ACUY")
+        this.$router.push("/");
     }
   }
 };

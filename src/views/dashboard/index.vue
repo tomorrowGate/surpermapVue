@@ -5,7 +5,7 @@
         <div class="app-container user-container">
           <el-row :gutter="10">
             <el-col :sm="12" :xs="24">
-              <div class="user-wrapper">
+              <div class="user-wrapper">  
                 <div class="user-header">
                   <el-avatar :size="60" :src="avatar" fit="fill">
                     <el-avatar :size="60">{{

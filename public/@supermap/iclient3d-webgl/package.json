@@ -1,0 +1,48 @@
+{
+  "_from": "@supermap/iclient3d-webgl@^1.0.6",
+  "_id": "@supermap/iclient3d-webgl@1.0.6",
+  "_inBundle": false,
+  "_integrity": "sha1-XUnG9UhkoO+3QAkUII0canXAvWc=",
+  "_location": "/@supermap/iclient3d-webgl",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@supermap/iclient3d-webgl@^1.0.6",
+    "name": "@supermap/iclient3d-webgl",
+    "escapedName": "@supermap%2ficlient3d-webgl",
+    "scope": "@supermap",
+    "rawSpec": "^1.0.6",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.6"
+  },
+  "_requiredBy": [
+    "/@supermap/vue-iclient3d-webgl"
+  ],
+  "_resolved": "https://registry.npm.taobao.org/@supermap/iclient3d-webgl/download/@supermap/iclient3d-webgl-1.0.6.tgz",
+  "_shasum": "5d49c6f54864a0efb7400914208d1c6a75c0bd67",
+  "_spec": "@supermap/iclient3d-webgl@^1.0.6",
+  "_where": "F:\\项目\\superCesium\\cesiumTest\\cesiumbim\\node_modules\\@supermap\\vue-iclient3d-webgl",
+  "author": {
+    "name": "chenfei23",
+    "email": "chenfei1@supermap.com"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "SuperMap_iClient3D_10i_for_WebGL",
+  "homepage": "http://support.supermap.com.cn:8090/webgl/examples/examples.html#layer",
+  "keywords": [
+    "SuperMap",
+    "WebGL",
+    "iClient3D",
+    "Cesium"
+  ],
+  "license": "ISC",
+  "main": "Cesium/Cesium.js",
+  "name": "@supermap/iclient3d-webgl",
+  "private": false,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.6"
+}

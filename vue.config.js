@@ -34,7 +34,6 @@ module.exports = {
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
   devServer: {
-    // port: port,
     open: true,
     overlay: {
       warnings: false,
@@ -44,12 +43,12 @@ module.exports = {
     proxy: {
       // change xxx-api/login => ≥mock/login
       // detail: https://cli.vuejs.org/config/#devserver-proxy
-      [proxyUrl]: {
-        target: targetUrl,
+      '/api/oauth': {
+        target: 'http://tangyh.top:10000',
         changeOrigin: true,
         pathRewrite: {
           // lamp-cloud  项目使用这段配置
-          ['^' + proxyUrl]: proxyUrl,
+           ['^/api/oauth']: '/',
 
           // lamp-boot 项目 请使用以下的配置
           // ['^/api/tenant']: '/',

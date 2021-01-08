@@ -126,6 +126,10 @@ router.beforeEach((to, from, next) => {
   if (whiteList.indexOf(to.path) !== -1) {
     next()
   } else {
+    
+    // next()
+    // return
+    
     const token = db.get('TOKEN', '')
     const user = db.get('USER')
     const userRouter = db.get('USER_ROUTER', '') //缓存中的路由
