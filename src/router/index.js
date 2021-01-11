@@ -5,6 +5,9 @@ import db from '@/utils/localstorage'
 import store from '@/store/index'
 import loginApi from '@/api/Login.js'
 import NProgress from 'nprogress'
+
+import Test from '@/views/test/test.vue'
+
 import 'nprogress/nprogress.css'
 
 Vue.use(Router)
@@ -88,6 +91,16 @@ const constRouter = [
         }
       },
     ]
+  },
+
+  {
+    path: '/test',
+    component: Test,
+    name: 'test',
+    meta: {
+      title: '测试',
+      icon: '404'
+    },
   },
 
   {

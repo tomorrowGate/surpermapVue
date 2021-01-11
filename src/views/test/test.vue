@@ -1,5 +1,25 @@
 
-//   <link href="../static/@supermap/vue-iclient3d-webgl/static/Cesium/Widgets/widgets.css" rel="stylesheet">
-//   <script src="../static/@supermap/vue-iclient3d-webgl/static/Cesium/Cesium.js"></script>
+<template>
+    <div>
+        test
+    </div>
+</template>
 
-//   import Cesium from '@supermap/vue-iclient3d-webgl/static/Cesium/Cesium.js'
+<script>
+export default {
+    name: 'test',
+
+    data () {
+        return {
+            
+        }
+    },
+    methods: {
+        
+    }
+}
+</script>
+
+<style lang='stylus' scoped>
+
+</style>

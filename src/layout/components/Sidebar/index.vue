@@ -52,6 +52,7 @@ export default {
       return !this.$store.state.setting.sidebar.opened
     },
     userRoutes () {
+      console.log(this.$store.state.account.routes)
       return this.$store.state.account.routes
     }
   }

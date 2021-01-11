@@ -43,12 +43,12 @@ module.exports = {
     proxy: {
       // change xxx-api/login => ≥mock/login
       // detail: https://cli.vuejs.org/config/#devserver-proxy
-      '/api/oauth': {
-        target: 'http://tangyh.top:10000',
+      ['/api']: {
+        target: "http://tangyh.top:10000",
         changeOrigin: true,
         pathRewrite: {
           // lamp-cloud  项目使用这段配置
-           ['^/api/oauth']: '/',
+          ['^' + "/api"]: "/api",
 
           // lamp-boot 项目 请使用以下的配置
           // ['^/api/tenant']: '/',

@@ -27,6 +27,9 @@ import "./styles/iconfont.css"; //自己的图标样式
 import eIconPicker, {analyzingIconForIconfont, iconList} from 'e-icon-picker';
 import svgIcons from 'e-icon-picker/dist/getSvg';
 
+import  '@supermap/vue-iclient3d-webgl/dist/styles/vue-iclient3d-webgl.min.css';
+import VueiClient from '@supermap/vue-iclient3d-webgl';
+
 let forIconfont = analyzingIconForIconfont(iconfont);
 //全局删除增加图标
 Vue.use(eIconPicker, {
@@ -35,7 +38,8 @@ Vue.use(eIconPicker, {
   eIcon: true,//自带的图标，来自阿里妈妈
   eIconSymbol: true,//是否开启彩色图标
   addIconList: forIconfont.list,
-  removeIconList: []
+  removeIconList: [],
+  VueiClient
 });
 
 iconList.addIcon(svgIcons);

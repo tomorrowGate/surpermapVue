@@ -485,9 +485,6 @@ export default {
       }
     },
     handleLogin() {
-       console.log(5566)
-       this.mockLoginSuccess()
-       return
       this.loginForm.tenant = `${Base64.encode(this.loginForm.tenantView)}`;
       this.$refs.loginForm.validate(valid => {
         if (valid) {
@@ -569,12 +566,6 @@ export default {
     loginSuccessCallback(user) {
       console.log(user);
     },
-    mockLoginSuccess(){
-       console.log(5566)
-        db.save('USER',{"id":"2","account":"lamp","name":"超级管理员","avatar":"","workDescribe":"不想上班!"})
-        db.save('TOKEN',"eyJ0eXAiOiJKc29uV2ViVG9rZW4iLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoi6LaF57qn566h55CG5ZGYIiwidG9rZW5fdHlwZSI6InRva2VuIiwidXNlcmlkIjoiMiIsImFjY291bnQiOiJsYW1wIiwiaWF0IjoxNjEwMDcyNTE4LCJuYmYiOjE2MTAwNzI1MTgsImV4cCI6MTYxMDEwMTMxOH0.HMuTjx-lWlvU6THe4-uZZwdMaGiQbus1GeNuUE1ACUY")
-        this.$router.push("/");
-    }
   }
 };
 </script>
